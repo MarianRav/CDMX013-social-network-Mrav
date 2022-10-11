@@ -17,7 +17,7 @@ export const LogOn = () => {
   const askAccount = document.createElement('p');
   const linkRegister = document.createElement('a');
 
-  title.textContent = 'Welcome back';
+  title.textContent = 'Welcome back!';
   brandIcon.setAttribute('src', '/images/icon.png');
   brandIcon.classList.add('brandIcon');
   inputEmail.setAttribute('type', 'email');
@@ -80,10 +80,6 @@ export const LogOn = () => {
         const credential = GoogleAuthProvider.credentialFromError(error);
       // ...
       });
-    /* .then(() => {
-        onNavigate('/wall');
-        console.log('signin')
-      }); */
   });
   askSection.append(askAccount, linkRegister);
 
