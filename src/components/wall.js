@@ -2,7 +2,7 @@ import { onAuthStateChanged, getAuth } from 'https://www.gstatic.com/firebasejs/
 import { endSesion, auth } from '../lib/auth.js';
 import { onNavigate } from '../main.js';
 import {
-  postCollection, onRealTime, deleteDocPost, getPost, updatePost,
+  postCollection, onRealTime, deleteDocPost, getPost, updatePost, addLikes
 } from '../lib/firestore.js';
 
 // HTML elements
@@ -113,7 +113,7 @@ export const wall = () => {
                     <img class='userIcon' src='/images/userIcon.png'>
                     <p class='userName'>${doc.data().user}</p>
                     <p class='publishedText'>${doc.data().post}</p>
-                    <img class='heartIcon' src='/images/heartIcon.png'>
+                    <img class='heartIcon' src='/images/heartIcon.png' data-id='${doc.id}'>
                      <img class='likeIcon' src='/images/likeIcon.png'>
                     <img class='deleteButton' src='/images/delete.png' data-id='${doc.id}'>
                     <img class='editButton' src='/images/edit.png' data-id='${doc.id}'>
@@ -158,11 +158,18 @@ export const wall = () => {
         });
       });
       const likeButtons = document.querySelectorAll('.heartIcon');
-      likeButtons.forEach((btn) => { 
-        btn.addEventListener('click', (e) => {
+      likeButtons.forEach((btn) => {
+        btn.addEventListener('click', async (e) => {
           e.stopImmediatePropagation();
-          console.log('hello');
-          heartIcon.style.display = 'none';
+          console.log(e.target.dataset.id)
+          const doc = await getPost(e.target.dataset.id);
+          console.log(doc);
+          //const doc = await getPost(e.target.dataset.id);
+          // const like = doc.data().like;
+          //console.log(doc.id);
+          addLikes(e.target.dataset.id, user.uid);
+          likeCount.textContent = doc.data().likes.length;
+          console.log(likeCount);
         });
       });
     });
