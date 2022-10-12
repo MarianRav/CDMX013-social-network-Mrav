@@ -1,6 +1,6 @@
 import { onAuthStateChanged, getAuth } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
 import { endSesion, auth } from '../lib/auth.js';
-import { onNavigate } from '../src/main.js';
+import { onNavigate } from '../main.js';
 import {
   postCollection, onRealTime, deleteDocPost, getPost, updatePost, addLikes, removeLikes,
 } from '../lib/firestore.js';
