@@ -1,5 +1,5 @@
 import { GoogleAuthProvider } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
-import { onNavigate } from '../main.js';
+import { onNavigate } from '../src/main.js';
 import { signIn, verifyWithGoogle, redirect } from '../lib/auth.js';
 
 export const LogOn = () => {
