@@ -1,8 +1,8 @@
 import { onAuthStateChanged, getAuth } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
-import { welcome } from './components/welcome.js';
-import { register } from './components/register.js';
-import { LogOn } from './components/signin.js';
-import { wall } from './components/wall.js';
+import { welcome } from './src/components/welcome.js';
+import { register } from './src/components/register.js';
+import { LogOn } from './src/components/signin.js';
+import { wall } from './src/components/wall.js';
 
 const root = document.getElementById('root');
 const routes = {
