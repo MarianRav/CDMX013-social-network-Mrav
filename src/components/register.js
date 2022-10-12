@@ -1,4 +1,4 @@
-import { onNavigate } from '../main.js';
+import { onNavigate } from '../src/main.js';
 import { createAccount, redirect, verifyWithGoogle } from '../lib/auth.js';
 
 
